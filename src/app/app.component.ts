@@ -396,11 +396,9 @@ async updateTimeSeries(){
  const stationData:CurrentValuesSchema[]= await Promise.all(this.stations.map(async(s:SessionInfoSchema)=>await this.stattionCurrentVal.execute(s.station).toPromise()))
  let data:any=stationData.map(item=>({time:item.timestamp,station:item.station_name,values:groupBy(item.values,(v)=>v.unit)}));
  data=data.map((item:any)=>({...item,values:Object.entries(item.values).map(e=>e[1])}))
- //const dt:any=[...data]
- 
  data.forEach((d:any,index:number)=>{
-  this.times.push(index+"times"+Date.now())
-const config:any=
+this.times.push(index+"times"+Date.now())
+  const config:any=
     {
     type: 'line',
     time:d.time,
@@ -442,10 +440,9 @@ const config:any=
     let chart = new Chart(this.times[index],config);
     this.timesCahrt.push({chart,config})
       },1000)
-
  })
 
-
+  
  return time
 }
 
