@@ -12,7 +12,6 @@ export interface CurrentValuesSchema{
     >
 
 }
-
 export interface SessionInfoSchema{
   station: string,
   description: string,
@@ -23,7 +22,6 @@ export interface SessionInfoSchema{
       unit: string|any
     }>
 }
-
 export interface ApiInterface {
   getCurrentValues(stationName:string):Observable<CurrentValuesSchema>
   getSessionInfo(projectName:string):Observable<Array<SessionInfoSchema>>

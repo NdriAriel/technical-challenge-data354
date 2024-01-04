@@ -4,7 +4,7 @@ import { ApiInterface, SessionInfoSchema } from 'src/domain';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class GetStationSessionInfoUsecasesService {
 
   constructor(@Inject('api') private readonly api:ApiInterface) { }

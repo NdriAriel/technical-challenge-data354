@@ -441,9 +441,6 @@ this.times.push(index+"times"+Date.now())
     this.timesCahrt.push({chart,config})
       },1000)
  })
-
-  
- return time
 }
 
 }

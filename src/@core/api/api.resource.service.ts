@@ -9,13 +9,12 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ApiResourceService implements ApiInterface {
   baseApi:string=environment.baseApi;
-
   constructor(private readonly http:HttpClient) { }
 
   getCurrentValues(stationName: string): Observable<CurrentValuesSchema> {
      return this.http.get<CurrentValuesSchema>(this.baseApi+`getCurrentValues/${stationName}`)
   }
-  
+
   getSessionInfo(projectName: string): Observable<SessionInfoSchema[]> {
     return this.http.get<SessionInfoSchema[]>(this.baseApi+`getSessionInfo/${projectName}`)
   }
