@@ -397,8 +397,7 @@ async updateTimeSeries(){
  let data:any=stationData.map(item=>({time:item.timestamp,station:item.station_name,values:groupBy(item.values,(v)=>v.unit)}));
  data=data.map((item:any)=>({...item,values:Object.entries(item.values).map(e=>e[1])}))
  //const dt:any=[...data]
- //console.log(dt)
-
+ 
  data.forEach((d:any,index:number)=>{
   this.times.push(index+"times"+Date.now())
 const config:any=
