@@ -1,0 +1,17 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "aq54 app server.",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index"
+  },
+  "keywords": [],
+  "author": "DAVID KOUAME N'DRI",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
+}

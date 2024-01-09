@@ -1,0 +1,16 @@
+<div class="toolbar" role="banner" >
+  <img
+    width="40"
+    alt="AQ54 Logo"
+    src="./assets/data354.png"
+  />
+  <span>{{title}}</span>
+   
+   <div class="d-flex p-2 menu">
+    <a [routerLink]="['/visualisation/diferred']" class="text-light">Différée</a>
+    <a [routerLink]="['/visualisation/real-time']" [routerLinkActive]="['/visualisation/real-time']" class=" text-light" >Temps Réel</a>
+    <a [href]="docUrl" target="_blank" class="text-light ">Docs</a>
+   </div>
+    <div class="spacer"></div>
+    <a [routerLink]="['/david']" class=" btn btn-danger">Mon CV</a>
+</div>

@@ -1,0 +1,120 @@
+
+
+
+
+
+
+<div class="container">
+    <div class="left_Side" >
+        <div class="profileText">
+            <div class="imgBx">
+                <img class="photo" [src]="user.photo">
+            </div>
+            <br>
+            <h2>{{user.name}} <br><span>{{user.jobTitle}}</span> </h2>
+        </div>
+
+        <div class="contactInfo">
+            <h3 class="title">Contacts</h3>
+            <ul>
+                <li>
+                    <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    <span class="text">{{user.phone}}</span>
+                </li>
+                <li>
+                    <span class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                    <span class="text">{{user.email1}}</span>
+                </li>
+                <li>
+                  <span class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                  <span class="text">{{user.email2}}</span>
+              </li>
+                <li>
+                    <span class="fa-brands fa-linkedin" aria-hidden="true"></span>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span class="text">
+                      {{user.linkedIn}}
+                    </span>
+                </li>
+                <li>
+                    <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                    <span class="text">{{user.address}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="contactInfo education">
+            <h3 class="title">Education</h3>
+            <ul>
+                <li *ngFor="let item of user.educations">
+                    <h5>{{item.year}}</h5>
+                    <h4>{{item.degree}}</h4>
+                    <h4>{{item.school}}</h4>
+                </li>
+
+            </ul>
+        </div>
+        <div class="contactInfo language">
+            <h3 class="title">Languages</h3>
+            <ul>
+                <li>
+                    <span class="text">Anglais</span>
+                    <span class="percent">
+                        <div class="englishw85"></div>
+                    </span>
+                </li>
+            </ul>
+
+
+            <ul>
+                <li>
+                    <span class="text">Français</span>
+                    <span class="percent">
+                        <div class="frenchw100"></div>
+                    </span>
+                </li>
+            </ul>
+          </div>
+
+        </div>
+    <div class="right_Side" >
+        <div class="about">
+            <h2 class="title2">Profil professionnel</h2>
+            <p class="text-justify">
+              {{user.profile}}
+            </p>
+        </div>
+        <div class="about">
+            <h2 class="title2">Experience</h2>
+            <div class="box" *ngFor="let item of user.experience">
+                <div class="year_company">
+                    <h5>{{item.time}}</h5>
+                    <h5>{{item.company}}</h5>
+                </div>
+                <div class="text">
+                    <h4>{{item.jobTitle}}</h4>
+                    <ul class="ed">
+                      <li *ngFor="let el of item.descriptioon">
+                            {{el}}
+                      </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="about skills">
+            <h2 class="title2">Competences</h2>
+            <canvas id="skilgraph"></canvas>
+        </div>
+        <div class="about interest">
+            <h2 class="title2">Centres d’intérêts</h2>
+            <canvas id="ci"></canvas>
+
+        </div>
+
+
+    </div>
+   <!---- <ngx-extended-pdf-viewer [src]="pdfSrc"></ngx-extended-pdf-viewer> -->
+
+</div>
+

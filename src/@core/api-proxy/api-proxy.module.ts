@@ -1,9 +1,13 @@
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiResourceService } from '../api/api.resource.service';
-import { GetStationCurrentValuesService } from '../UseCases/get-station-current-values.service';
-import { GetStationSessionInfoUsecasesService } from '../UseCases/get-station-session-info-usecases.service';
-
+import { DiferredModeUsecases } from '..';
+import { RealTimeUseCases } from 'src/UseCases';
+/**
+ * Api proxy module
+ * here we setup configuration of the different api usecases
+ * 
+ */
 
 @NgModule({
   declarations: [],
@@ -11,19 +15,22 @@ import { GetStationSessionInfoUsecasesService } from '../UseCases/get-station-se
     CommonModule
   ],
   providers:[
-    {
-    provide:'station:currentVal',
-    useClass:GetStationCurrentValuesService
-  },
+
   {
     provide:'api',
     useClass:ApiResourceService
   },
+
   {
-    provide:'station:sessionInfo',
-    useClass:GetStationSessionInfoUsecasesService
+    provide:"diferred:mode",
+    useClass:DiferredModeUsecases
+  },
+  {
+    provide:'realTime:mode',
+    useClass:RealTimeUseCases
   }
+
 ],
-  exports:[]
+exports:[]
 })
 export class ApiProxyModule {}

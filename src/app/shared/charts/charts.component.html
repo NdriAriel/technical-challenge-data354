@@ -1,0 +1,51 @@
+<div class="content d-block" role="main" >
+
+  <div class="card-container " *ngIf="stations.length">
+
+    <div class="card d-block ">
+      <label for="debut" class="mb-3">
+        Début
+       <input [max]="today" type="date" class="form-control" id="debut" [(ngModel)]="start">
+      </label>
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </div>
+
+    <div class="card d-block">
+      <label for="fin" class="mb-3">
+        Fin
+     <input type="date" (input)="changeRange()" class="form-control" id="fin" [(ngModel)]="end" [max]="today">
+
+      </label>
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </div>
+
+    <div class="card d-block ">
+      <label for="station" class="mb-3">
+        Stations
+        <select name="stations" id="station" class="form-control" (change)="changeStation($event)">
+          <option *ngFor="let item of stations" [value]="item.station" [id]="item.station" [selected]="item.selected" >{{item.station}}</option>
+        </select>
+      </label>
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </div>
+
+
+  </div>
+
+
+
+
+
+  <div class="card-container" *ngFor="let item of times">
+     <canvas width="200px" [id]="item"></canvas>
+    </div>
+    <div class="card-container" *ngFor="let item of scatters" >
+      <canvas width="200px" [id]="item"></canvas>
+     </div>
+    <div class="card-container">
+      <canvas width="200px" [id]="chart"></canvas>
+     </div>
+
+
+</div>
+
