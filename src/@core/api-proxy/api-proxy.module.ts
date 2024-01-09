@@ -6,8 +6,8 @@ import { RealTimeUseCases } from 'src/UseCases';
 /**
  * Api proxy module
  * here we setup configuration of the different api usecases
- * 
- */
+ *
+ */    
 
 @NgModule({
   declarations: [],
