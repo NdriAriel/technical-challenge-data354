@@ -61,10 +61,11 @@ Before running the application, make sure you have the following software instal
 
 ![Routes](./images/imager.png)
 
-![realTime](image.png)
+## AQ54 Data visualisation app user interface
 
-- `docker-compose.yml`: Configuration file for Docker-Compose.
-- `Dockerfile`: Dockerfile for building the Angular app image.
+![realTime](image-realtime.png)
+
+![ deferredTime](imagedf.png)  
 
 ## Docker-Compose Configuration
 
