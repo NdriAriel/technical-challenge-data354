@@ -61,6 +61,8 @@ Before running the application, make sure you have the following software instal
 
 ![Routes](./images/imager.png)
 
+![realTime](image.png)
+
 - `docker-compose.yml`: Configuration file for Docker-Compose.
 - `Dockerfile`: Dockerfile for building the Angular app image.
 
