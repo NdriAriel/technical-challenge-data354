@@ -89,20 +89,71 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1>AQ54</h1>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 12.2.18.</p>
-<h2>Development server</h2>
-<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
-<h2>Code scaffolding</h2>
-<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
-<h2>Build</h2>
-<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code>  directory.</p>
-<h2>Running unit tests</h2>
-<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
-<h2>Running end-to-end tests</h2>
-<p>Run <code>ng e2e</code> to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.</p>
-<h2>Further help</h2>
-<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://angular.io/cli">Angular CLI Overview and Command Reference</a> page.</p>
+<h1>AQ54 Data Visualization App with Angular and Docker-Compose and Nodejs</h1>
+<h2>Overview</h2>
+<p>This repository contains the source code and configurations for AQ54 data visualization app built with Angular, Docker-Compose,
+ Node.js, and the AirQuino API. The app is designed to fetch and display air quality data in a visually appealing manner.</p>
+<h2>Prerequisites</h2>
+<p>Before running the application, make sure you have the following software installed on your machine:</p>
+<ul>
+<li><a href="https://www.docker.com/">Docker</a></li>
+<li><a href="https://docs.docker.com/compose/">Docker-Compose</a></li>
+<li><a href="https://nodejs.org/">Node.js</a>(version 16 or latest)</li>
+<li><a href="https://github.com/angular/angular-cli">Angular</a> (version 12.2.18)</li>
+<li>Code editor of your choice (e.g., Visual Studio Code)</li>
+</ul>
+<h2>Getting Started</h2>
+<ol>
+<li><p>Clone the repository:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">git clone https://github.com/NdriAriel/technical-challenge-data354.git
+cd technical-challenge-data354</code></pre></div></li>
+<li><p>Install Angular CLI globally:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install -g &#64;angular/cli&#64;12</code></pre></div></li>
+<li><p>Install project dependencies:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">cd technical-challenge-data354
+npm install</code></pre></div></li>
+<li><p>Build the Angular app:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">ng build</code></pre></div></li>
+<li><p>Start the Docker containers:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">docker-compose up -d</code></pre></div></li>
+<li><p>Open your web browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a> to access the Data Visualization App.</p>
+</li>
+</ol>
+<h2>Project Structure</h2>
+<p><img src="./images/image.png" alt="Main" class="img-responsive"></p>
+<p><img src="./images/imagef.png" alt="Features" class="img-responsive">  </p>
+<p><img src="./images/image-1.png" alt="Shared" class="img-responsive"></p>
+<p><img src="./images/imager.png" alt="Routes" class="img-responsive"></p>
+<ul>
+<li><code>docker-compose.yml</code>: Configuration file for Docker-Compose.</li>
+<li><code>Dockerfile</code>: Dockerfile for building the Angular app image.</li>
+</ul>
+<h2>Docker-Compose Configuration</h2>
+<p>The <code>docker-compose.yml</code> file defines the services, networks, and volumes needed for the application. It includes the following services:</p>
+<ul>
+<li><strong>web-app</strong>: Angular app service.</li>
+<li><strong>nginx</strong>: Nginx web server for serving the Angular app.</li>
+<li><strong>api</strong>: Placeholder for any backend API service.</li>
+<li><strong>database</strong>: Placeholder for any backend database service.</li>
+</ul>
+<h2>Development Workflow</h2>
+<ol>
+<li><p>Make changes to the Angular app source code in the <code>src/</code> directory.</p>
+</li>
+<li><p>Rebuild the Angular app:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">ng build</code></pre></div></li>
+<li><p>Restart the Docker containers:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">docker-compose restart web-app</code></pre></div></li>
+<li><p>Access the updated app at <a href="http://localhost:8080">http://localhost:8080</a>.</p>
+</li>
+</ol>
+<h2>Maintenance and Support</h2>
+<p>For additional information or support, please contact the maintainers of this repository:</p>
+<ul>
+<li>David Kouamé N&#39;DRI <a href="mailto:kouame.ndri1998@gmail.com">kouame.ndri1998@gmail.com</a></li>
+</ul>
+<h2>License</h2>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
 
 
 

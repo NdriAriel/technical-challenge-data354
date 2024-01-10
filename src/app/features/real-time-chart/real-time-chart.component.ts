@@ -30,7 +30,9 @@ export class RealTimeChartComponent implements OnInit,OnDestroy,chartBuilder,Rea
    * diffrent properties of the class
    */
     selectedSensor:any
+    scatterSensors:any=[];
     sensors:Array<{type:string,unit:string}>=[]
+
     scatters:string[]=[]
     scatterChart:any[]=[];
     times:string[]=[]
@@ -207,6 +209,8 @@ export class RealTimeChartComponent implements OnInit,OnDestroy,chartBuilder,Rea
     scatterData(d:CurrentValuesSchema[],n:any=null){
     let data:any=[]
       const selectedSensor=this.selectedSensor?this.selectedSensor:this.sensors[n||Math.floor(Math.random()*(this.sensors.length-1))]
+
+        
       if(selectedSensor)
       d.forEach(item=>{
         const values=item.values.filter(v=>!v.unit?null:v.unit.toLowerCase()===selectedSensor.unit?.toLowerCase() && v.sensor!=selectedSensor.type)

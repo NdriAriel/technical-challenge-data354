@@ -8,11 +8,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 body{
-  background: white !important ;//url('https://th.bing.com/th/id/OIP.dpeFlz7WZE0-5QOzOjK9GwHaE8?w=768&h=512&rs=1&pid=ImgDetMain');
-  background-repeat:repeat-x;
-
+  background: white !important ;
 }
-
 h1,
 h2,
 h3,
@@ -31,6 +28,5 @@ p {
   margin: 82px auto 32px;
   padding: 0 1px;
   max-width: 980px;
-  //flex-direction: flex;
   align-items: center;
-}
+} 

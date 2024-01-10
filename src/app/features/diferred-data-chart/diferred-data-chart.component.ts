@@ -16,8 +16,22 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
       @Inject('diferred:mode') private readonly usecases:DiferredModeUsecases,
       private readonly activeRoute:ActivatedRoute,
     ) { }
-
+/**
+ * class properties
+ */
+   chartPageTitle='Visualisation différée.'
     scatters:string[]=[]
+    chartbarvisualisation=[{
+      label:"Unité de mesure des capteurs",
+      sensor:false,
+      selected:true
+    },
+     {
+       label:"Capteurs",
+       sensor:true,
+       selected:false
+    }]
+    scatterSensors:any=[];
     times:string[]=[]
     scatterChart:Chart|any=null
     stationsInfo:SessionInfoSchema[]=[];
@@ -61,7 +75,7 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
     }
 
     ngOnDestroy(): void {
-    clearInterval(this.timer)
+    this.clearTimer()
     }
 
   /**
@@ -90,7 +104,7 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
 
       this.barBasedChart()
       this.scatterBasedChart()
-        this.timer =   setInterval(()=>{
+        this.timer = setInterval(()=>{
         this.updateScatter()
       },50000)
     }catch(err:any){
@@ -101,7 +115,10 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
 
   }
 
+clearTimer(){
+  clearInterval(this.timer)
 
+}
   /**
    *when it calls it handle data structure required for the different graphs
   * @param data
@@ -123,16 +140,12 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
     const xdata= gp?gp.values.find((v:any)=>v.label===item.label):null
     const ydata = gp?gp.values.filter((v:any)=>v.label!=item.label && v.unit===item.unit):[]
     const grp =groupBy(ydata,(g:any)=>g.label);
-
   if(ydata.length&&xdata){
-
   let xgroup:any=groupBy(xdata.dayValues,(d:any)=>d.x)
   const obj=Object.entries(grp)
   let y:any=obj.map((yd:any)=>({label:yd[0],ydata:groupBy(yd[1][0].dayValues,(f:any)=>f.x)}))
-
   let dts:any=[]
   Object.keys(xgroup).forEach((key:any)=>{
-
     y.forEach((yd:any)=>{
       xgroup[key].forEach((xd:any,id:number)=>{
         dts.push({data:{y:yd.ydata[key][id].y,x:xd.y},label:`${yd.label}=f(${item.label})`})
@@ -140,10 +153,7 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
     })
 
   })
-
   item['dayVal']=groupBy(dts,(d:any)=>d.label)
-
-
   }
   units.push(group?.unit)
   group?.values.forEach((v:any)=>{
@@ -155,13 +165,31 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
 
   }
 
+changeChartBarVisOption(item:any){
+ // console.log(item)
+  if(item){
+ //const config=  this.barBasedChart()
+
+  }
+ // console.log(this.timeData,this.chart)
+}
+
+
+onSensorChange(item:any){
+if(item){
+this.updateScatter(item)
+this.clearTimer()
+ }
+}
+
+
   /**
    * this method selecte randomly a sensor to update the scatter graph
    *
    */
-  updateScatter(){
+  updateScatter(sensor:string=''){
     const dt = this.timeData.filter((item:any)=>item.dayVal)
-    const d=dt[Math.floor(Math.random()*(dt.length-1))]
+    const d=!sensor?dt[Math.floor(Math.random()*(dt.length-1))]:dt.find((s:any)=>s.label==sensor)
     if(d){
       const scatterConfig:any= {
         type: 'scatter',
@@ -169,11 +197,8 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
           datasets:Object.entries(d.dayVal).map((item:any)=>{
               const data= item[1].map((dt:any)=>({...dt.data}))
               return {data,label:item[0]}
-
           }),
-
           backgroundColor:getRandomRgb(),
-
         },
         options: {
           responsive:true,
@@ -181,7 +206,7 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
             legend: {
               position: 'top',
             },
-            title: makeTitle(`Correlation entre les donnés d'un capteur pris de façon aleatoire dans ${this.selectedStation} et le reste des capteurs selon l'unité de mesure ${d.unit}. et le temps de transmission des données.`)
+            title: makeTitle(`Correlation entre les donnés d'un capteur pris dans ${this.selectedStation} et le reste des capteurs selon l'unité de mesure ${d.unit}. et le temps de transmission des données.`)
           },
           scales:{
             y:{
@@ -257,7 +282,8 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
       }
   }
   }
-  new Chart('chart',config)
+  !this.chart?this.chart=new Chart('chart',config):null
+  return config
   }catch(err:any){
   throw new Error(err.message)
   }
@@ -273,6 +299,8 @@ export class DiferredDataChartComponent implements OnInit,OnDestroy,chartBuilder
   scatterBasedChart(){
     const dt = this.timeData.filter((item:any)=>item.dayVal)
     const d=dt[Math.floor(Math.random()*(dt.length-1))]
+    this.scatterSensors.push({sensor:d.label,selected:true})
+    this.scatterSensors=this.scatterSensors.concat(dt.filter((f:any)=>f.label!=d.label).map((sc:any)=>({sensor:sc.label,selected:false})))
     if(d){
       const scatterConfig:any= {
         type: 'scatter',

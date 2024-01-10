@@ -1,7 +1,7 @@
 <div class="content d-block" role="main" >
+  <h1 class="title">{{title}}</h1>
 
   <div class="card-container " *ngIf="stations.length">
-
     <div class="card d-block ">
       <label for="debut" class="mb-3">
         Début
@@ -31,20 +31,35 @@
 
 
   </div>
+   <hr>
+   <label for="charbarp" *ngIf="chartBarVis">
+    <select name="stations" id="charbarp" class="form-control"  (change)="onchartOptionChange($event)">
+      <option *ngFor="let item of chartBarVis" [selected]="item.selected" [value]="item.sensor">{{item.label}}</option>
+    </select>
+  </label>
+  <div class="card-container">
 
+    <canvas width="200px" [id]="chart"></canvas>
+   </div>
 
-
-
-
-  <div class="card-container" *ngFor="let item of times">
+   <div class="card-container" *ngFor="let item of times">
      <canvas width="200px" [id]="item"></canvas>
     </div>
+
+    <hr>
+
+    <label for="scattersensor" *ngIf="sensors">
+      <select name="stations" id="scattersensor" class="form-control" (change)="onSensorChange($event)">
+        <option *ngFor="let item of sensors" [value]="item.sensor" [selected]="item.selected">{{item.sensor}}</option>
+      </select>
+    </label> 
+
     <div class="card-container" *ngFor="let item of scatters" >
+
       <canvas width="200px" [id]="item"></canvas>
      </div>
-    <div class="card-container">
-      <canvas width="200px" [id]="chart"></canvas>
-     </div>
+
+
 
 
 </div>

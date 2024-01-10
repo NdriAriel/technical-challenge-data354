@@ -3,20 +3,19 @@ services:
   aq54:
     build:
       context: ./app
-      dockerfile: ./app/Dockerfile
+      dockerfile: Dockerfile
     image: aq54
     container_name: aq54
     restart: unless-stopped
     environment:
       - PORT=3000
     ports:
-      - 80:3000
-    volumes:
-        - .:/home/node/app
+      - 3000:3000
+
   aq54doc:
     build:
       context: ./docs
-      dockerfile: ./docs/Dockerfile
+      dockerfile: Dockerfile
     image: aq54doc
     container_name: aq54doc
     restart: unless-stopped
@@ -24,9 +23,8 @@ services:
       - PORT=8080
     ports:
       - 8080:8080
-    volumes:
-      - .:/home/node/app
-    
+ 
+
 
 
 

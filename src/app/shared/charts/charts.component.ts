@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { SweetAlert } from 'sweetalert/typings/core';
@@ -37,6 +37,12 @@ export class ChartsComponent implements OnInit {
 @Input('stations') stations:any[]=[];
 @Input('chart') chart='real-time-chart'
 @Input('selectedStation') selected='SMART188'
+@Input('title') title='visualisation temps réel.'
+@Input('chartBarVis') chartBarVis:any=null
+@Input('sensors') sensors:any=null
+@Output('chartBarVisChange') chatBarVisChange= new EventEmitter<any>()
+@Output('sensorChange') sensorChange = new EventEmitter<any>()
+selectedOption:any=null
 /**
  * the range start string
  */
@@ -133,4 +139,12 @@ changeRange(station:string='',message=''){
 }
 
 
+onchartOptionChange(event:Event|any)
+{
+ this.chatBarVisChange.emit(event.target?.value)
+}
+
+onSensorChange(event:Event|any){
+   this.sensorChange.emit(event.target.value)
+}
 }
