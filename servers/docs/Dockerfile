@@ -6,12 +6,12 @@ WORKDIR /home/node/app
 
 COPY package*.json ./
 
-USER node
+USER root
 
-RUN npm install -f
+RUN npm install
 
 COPY --chown=node:node . .
-
-EXPOSE 8080
+ 
+EXPOSE 8001
 
 CMD [ "npm", "start"]

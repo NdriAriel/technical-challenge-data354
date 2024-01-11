@@ -12,6 +12,12 @@ module.exports = function (config) {
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
   ],
+  flags: [
+    '--no-sandbox',
+    '--disable-gpu',
+    '--headless',
+    '--remote-debugging-port=9222'
+  ],
     client: {
       jasmine: {
         // you can add configuration options for Jasmine here

@@ -24,32 +24,19 @@ Before running the application, make sure you have the following software instal
    cd technical-challenge-data354
    ```
 
-2. Install Angular CLI globally:
+2. Start the Docker containers:
 
    ```bash
-   npm install -g @angular/cli@12
+   sudo docker-compose build 
+
+   sudo docker-compose up 
    ```
 
-3. Install project dependencies:
+## output of docker-compose up
 
-   ```bash
-   cd technical-challenge-data354
-   npm install
-   ```
-
-4. Build the Angular app:
-
-   ```bash
-   ng build
-   ```
-
-5. Start the Docker containers:
-
-   ```bash
-   docker-compose up -d
-   ```
-
-6. Open your web browser and navigate to [http://localhost:8080](http://localhost:8080) to access the Data Visualization App.
+![Alt text](image.png)
+3. Open your web browser and navigate to [http://localhost:8000](http://localhost:8000) to access the Data Visualization App.
+4. Open your brower and navigate to ['http://localhost:8001](http://localhost:8001) to access the Data Visualisation App documentation.
 
 ## Project Structure  
 
@@ -63,15 +50,15 @@ Before running the application, make sure you have the following software instal
 
 ## AQ54 Data visualisation app user interface
 
-![realTime](image-realtime.png)
+![realTime](./images/image-realtime.png)
 
-![ deferredTime](imagedf.png)  
+![ deferredTime](./images/imagedf.png)  
 
 ## Docker-Compose Configuration
 
 The `docker-compose.yml` file defines the services, networks, and volumes needed for the application. It includes the following services:
 
-- **web-app**: Angular app service.
+- **aq54prod**: AQ54 app served by a nodejs server.
 - **nginx**: Nginx web server for serving the Angular app.
 - **api**: Placeholder for any backend API service.
 - **database**: Placeholder for any backend database service.

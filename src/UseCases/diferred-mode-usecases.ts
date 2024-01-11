@@ -1,5 +1,10 @@
 import { Inject, Injectable } from "@angular/core";
-import { ApiInterface } from "src/domain";
+import { ApiInterface, RangeDataSchema, SessionInfoSchema } from "src/domain";
+export interface parallelExecutionResponseType{
+  raw_data:RangeDataSchema['raw_data']
+  station:string
+  sessionInfo:SessionInfoSchema[]
+}
 
 /**
  * This class handles api calls for diferred mode data visualisation
@@ -7,7 +12,7 @@ import { ApiInterface } from "src/domain";
  */
 @Injectable({providedIn:'root'})
 export class DiferredModeUsecases {
-  
+
   /**
    *
    * @param api
@@ -23,7 +28,7 @@ export class DiferredModeUsecases {
    * @returns
    */
 
- async parallelExecution(stationName:string='',start:string,end:string,projectName:string){
+ async parallelExecution(stationName:string='',start:string,end:string,projectName:string):Promise<parallelExecutionResponseType>{
     try{
       const [{raw_data,station},sessionInfo] = await Promise.all([
         await this.api.getRange(stationName,start,end).toPromise(),

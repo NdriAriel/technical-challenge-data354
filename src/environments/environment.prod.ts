@@ -4,5 +4,5 @@
 export const environment = {
   production: true,
   baseApi:"https://airqino-api.magentalab.it/",
-  docsURL:"http://localhost:8080/docs"
-};
+  docsURL:"http://localhost:8001/docs"
+}; 

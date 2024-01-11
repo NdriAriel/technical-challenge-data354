@@ -3,8 +3,8 @@ var createError = require('http-errors');
 const path =require('path')
 const express = require('express')
 const app = express()
-const host = 'localhost';
-const port = 8001;
+const host = process.env.HOST||'localhost';
+const port = process.env.PORT||8001;
 var logger = require('morgan');
 
 
@@ -35,5 +35,5 @@ app.use(function(err, req, res, next) {
 
 const server = http.createServer(app);
 server.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
+    console.log(`Aq54 server is running on http://localhost:${port}`);
 });

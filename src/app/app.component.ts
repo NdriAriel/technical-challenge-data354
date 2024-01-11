@@ -11,6 +11,7 @@ import { IsLoadingService } from 'src/@core';
 })
 export class AppComponent implements OnInit {
   spinning=false
+  title='AQ54'
   constructor( public isLoading:IsLoadingService){}
   /**
    * executed once the component got initiated
