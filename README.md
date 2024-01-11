@@ -34,9 +34,9 @@ Before running the application, make sure you have the following software instal
 
 ## output of docker-compose up
 
-![Alt text](image.png)
-3. Open your web browser and navigate to [http://localhost:8000](http://localhost:8000) to access the Data Visualization App.
-4. Open your brower and navigate to ['http://localhost:8001](http://localhost:8001) to access the Data Visualisation App documentation.
+![outdocker](./images/image.png)
+3. Open your web browser and navigate to [http://localhost:8000](http://localhost:8000) to access the Data Visualization App
+4. Open your brower and navigate to ['http://localhost:8001](http://localhost:8001) to access the Data Visualisation App    documentation
 
 ## Project Structure  
 
@@ -58,28 +58,9 @@ Before running the application, make sure you have the following software instal
 
 The `docker-compose.yml` file defines the services, networks, and volumes needed for the application. It includes the following services:
 
-- **aq54prod**: AQ54 app served by a nodejs server.
-- **nginx**: Nginx web server for serving the Angular app.
-- **api**: Placeholder for any backend API service.
-- **database**: Placeholder for any backend database service.
-
-## Development Workflow
-
-1. Make changes to the Angular app source code in the `src/` directory.
-
-2. Rebuild the Angular app:
-
-   ```bash
-   ng build
-   ```
-
-3. Restart the Docker containers:
-
-   ```bash
-   docker-compose restart web-app
-   ```
-
-4. Access the updated app at [http://localhost:8080](http://localhost:8080).
+- **aq54prod**: AQ54 app server made of  nodejs.
+- **aq54docprod**: well structured documentation for AQ54 App.
+- **aq54frontend**: this is the Angular based frontend of AQ54 data visualisation app.
 
 ## Maintenance and Support
 
