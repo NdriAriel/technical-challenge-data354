@@ -34,7 +34,7 @@ Before running the application, make sure you have the following software instal
 
 ## output of docker-compose up
 
-![outdocker](./images/image.png)
+![outputdocker](./images/dockerlog.png)
 3. Open your web browser and navigate to [http://localhost:8000](http://localhost:8000) to access the Data Visualization App
 4. Open your brower and navigate to ['http://localhost:8001](http://localhost:8001) to access the Data Visualisation App    documentation
 
