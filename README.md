@@ -5,7 +5,9 @@
 This repository contains the source code and configurations for AQ54 data visualization app built with Angular, Docker-Compose,
  Node.js, and the AirQino API. The app is designed to fetch and display air quality data in a visually appealing manner.
  AirQino is a high-precision environmental monitoring platform, born from the need to create a network of stations for accurately assessing the quality of urban environment.
- for maore detail about AirQuino you can navigate to [airqino](https://www.airqino.it)
+ for maore detail about AirQuino you can navigate to [airqino](https://www.airqino.it).
+ This repository is a well structured code based on clean Architecture in conjunction with SOLID principles
+ [clean architecture](https://www.educative.io/blog/clean-architecture-tutorial)
 
 ## Prerequisites
 
