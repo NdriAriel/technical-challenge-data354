@@ -200,6 +200,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/OninitResponseSchema.html" data-type="entity-link" >OninitResponseSchema</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/parallelExecutionResponseType.html" data-type="entity-link" >parallelExecutionResponseType</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/RangeDataSchema.html" data-type="entity-link" >RangeDataSchema</a>
                             </li>
                             <li class="link">

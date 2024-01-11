@@ -10,10 +10,10 @@ RUN  npm install -g @angular/cli@12
 
 COPY package*.json ./
 
-RUN npm install || true
+RUN npm install
 
 
 CMD ["npm","run" ,"build"]
 
 COPY --chown=node:node . .
-
+#uGiLK4Ct4-nVtq6

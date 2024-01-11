@@ -7,7 +7,8 @@ This repository contains the source code and configurations for AQ54 data visual
  AirQino is a high-precision environmental monitoring platform, born from the need to create a network of stations for accurately assessing the quality of urban environment.
  for maore detail about AirQuino you can navigate to [airqino](https://www.airqino.it).
  This repository is a well structured code based on clean Architecture in conjunction with SOLID principles
- [clean architecture](https://www.educative.io/blog/clean-architecture-tutorial)
+ [clean architecture](https://www.educative.io/blog/clean-architecture-tutorial).
+ It can served as best pratice coding guide to he or she looking to build scaleable software product in angular aligned with clean architecture implementation.
 
 ## Prerequisites
 

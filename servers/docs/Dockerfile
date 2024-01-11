@@ -10,8 +10,9 @@ USER root
 
 RUN npm install
 
+
 COPY --chown=node:node . .
- 
+
 EXPOSE 8001
 
 CMD [ "npm", "start"]

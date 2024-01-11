@@ -56,7 +56,7 @@ services:
     volumes:
       - distapp:/home/node/app/distapp
       - documentation:/home/node/app/documentation
- 
+
 
     networks:
       - aq54

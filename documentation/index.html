@@ -92,7 +92,12 @@
 <h1>AQ54 Data Visualization App with Angular and Docker-Compose and Nodejs</h1>
 <h2>Overview</h2>
 <p>This repository contains the source code and configurations for AQ54 data visualization app built with Angular, Docker-Compose,
- Node.js, and the AirQuino API. The app is designed to fetch and display air quality data in a visually appealing manner.</p>
+ Node.js, and the AirQino API. The app is designed to fetch and display air quality data in a visually appealing manner.
+ AirQino is a high-precision environmental monitoring platform, born from the need to create a network of stations for accurately assessing the quality of urban environment.
+ for maore detail about AirQuino you can navigate to <a href="https://www.airqino.it">airqino</a>.
+ This repository is a well structured code based on clean Architecture in conjunction with SOLID principles
+ <a href="https://www.educative.io/blog/clean-architecture-tutorial">clean architecture</a>.
+ It can served as best pratice coding guide to he or she looking to build scaleable software product in angular aligned with clean architecture implementation.</p>
 <h2>Prerequisites</h2>
 <p>Before running the application, make sure you have the following software installed on your machine:</p>
 <ul>
@@ -106,19 +111,28 @@
 <ol>
 <li><p>Clone the repository:</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-bash">git clone https://github.com/NdriAriel/technical-challenge-data354.git
-cd technical-challenge-data354</code></pre></div></li>
-<li><p>Install Angular CLI globally:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install -g &#64;angular/cli&#64;12</code></pre></div></li>
-<li><p>Install project dependencies:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">cd technical-challenge-data354
-npm install</code></pre></div></li>
-<li><p>Build the Angular app:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">ng build</code></pre></div></li>
+</code></pre></div></li>
+<li><p>change directory</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">cd technical-challenge-data354</code></pre></div></li>
+</ol>
+<h2>Docker-Compose Configuration</h2>
+<p>The <code>docker-compose.yml</code> file defines the services, networks, and volumes needed for the application. It includes the following services:</p>
+<ul>
+<li><strong>aq54prod</strong>: AQ54 app server made of  nodejs.</li>
+<li><strong>aq54docprod</strong>: well structured documentation for AQ54 App.</li>
+<li><strong>aq54frontend</strong>: this is the Angular based frontend of AQ54 data visualisation app.</li>
+</ul>
+<ol>
 <li><p>Start the Docker containers:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">docker-compose up -d</code></pre></div></li>
-<li><p>Open your web browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a> to access the Data Visualization App.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">sudo docker-compose build 
+
+sudo docker-compose up </code></pre></div></li>
+<li><p>output of docker-compose up</p>
 </li>
 </ol>
+<p><img src="./images/dockerlog.png" alt="outputdocker" class="img-responsive">
+3. Open your web browser and navigate to <a href="http://localhost:8000">http://localhost:8000</a> to access the Data Visualization App
+4. Open your brower and navigate to <a href="http://localhost:8001">&#39;http://localhost:8001</a> to access the Data Visualisation App    documentation</p>
 <h2>Project Structure</h2>
 <p><img src="./images/image.png" alt="Main" class="img-responsive"></p>
 <p><img src="./images/imagef.png" alt="Features" class="img-responsive">  </p>
@@ -127,25 +141,6 @@ npm install</code></pre></div></li>
 <h2>AQ54 Data visualisation app user interface</h2>
 <p><img src="./images/image-realtime.png" alt="realTime" class="img-responsive"></p>
 <p><img src="./images/imagedf.png" alt=" deferredTime" class="img-responsive">  </p>
-<h2>Docker-Compose Configuration</h2>
-<p>The <code>docker-compose.yml</code> file defines the services, networks, and volumes needed for the application. It includes the following services:</p>
-<ul>
-<li><strong>web-app</strong>: Angular app service.</li>
-<li><strong>nginx</strong>: Nginx web server for serving the Angular app.</li>
-<li><strong>api</strong>: Placeholder for any backend API service.</li>
-<li><strong>database</strong>: Placeholder for any backend database service.</li>
-</ul>
-<h2>Development Workflow</h2>
-<ol>
-<li><p>Make changes to the Angular app source code in the <code>src/</code> directory.</p>
-</li>
-<li><p>Rebuild the Angular app:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">ng build</code></pre></div></li>
-<li><p>Restart the Docker containers:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">docker-compose restart web-app</code></pre></div></li>
-<li><p>Access the updated app at <a href="http://localhost:8080">http://localhost:8080</a>.</p>
-</li>
-</ol>
 <h2>Maintenance and Support</h2>
 <p>For additional information or support, please contact the maintainers of this repository:</p>
 <ul>

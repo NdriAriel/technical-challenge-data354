@@ -180,7 +180,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/UseCases/diferred-mode-usecases.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/UseCases/diferred-mode-usecases.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -245,8 +245,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="47"
-                                    class="link-to-prism">src/UseCases/diferred-mode-usecases.ts:47</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/UseCases/diferred-mode-usecases.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -349,8 +349,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">src/UseCases/diferred-mode-usecases.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/UseCases/diferred-mode-usecases.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -445,7 +445,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>unknown</code>
+                            <b>Returns : </b>        <code><a href="../interfaces/parallelExecutionResponseType.html" target="_self" >Promise&lt;parallelExecutionResponseType&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -462,7 +462,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable } from &quot;@angular/core&quot;;
-import { ApiInterface } from &quot;src/domain&quot;;
+import { ApiInterface, RangeDataSchema, SessionInfoSchema } from &quot;src/domain&quot;;
+export interface parallelExecutionResponseType{
+  raw_data:RangeDataSchema[&#x27;raw_data&#x27;]
+  station:string
+  sessionInfo:SessionInfoSchema[]
+}
 
 /**
  * This class handles api calls for diferred mode data visualisation
@@ -470,7 +475,7 @@ import { ApiInterface } from &quot;src/domain&quot;;
  */
 @Injectable({providedIn:&#x27;root&#x27;})
 export class DiferredModeUsecases {
-  
+
   /**
    *
    * @param api
@@ -486,7 +491,7 @@ export class DiferredModeUsecases {
    * @returns
    */
 
- async parallelExecution(stationName:string&#x3D;&#x27;&#x27;,start:string,end:string,projectName:string){
+ async parallelExecution(stationName:string&#x3D;&#x27;&#x27;,start:string,end:string,projectName:string):Promise&lt;parallelExecutionResponseType&gt;{
     try{
       const [{raw_data,station},sessionInfo] &#x3D; await Promise.all([
         await this.api.getRange(stationName,start,end).toPromise(),
