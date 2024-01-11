@@ -38,5 +38,5 @@ app.use(function(err, req, res, next) {
 
 const server = http.createServer(app);
 server.listen(port, host, () => {
-    console.log(`Aq54 server is running on http://localhost:${port}`);
+    console.log(`Aq54 doc server is running on http://localhost:${port}`);
 });

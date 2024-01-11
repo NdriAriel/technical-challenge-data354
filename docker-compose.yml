@@ -25,12 +25,12 @@ services:
       - aq54
 
 
-  aq54docprod:
+  aq54doc:
     build:
       context: ./servers/docs
       dockerfile: Dockerfile
-    image: aq54doc-prod
-    container_name: aq54doc-prod
+    image: aq54doc
+    container_name: aq54doc
     restart: unless-stopped
     environment:
       - PORT=8001
@@ -41,9 +41,8 @@ services:
       - aq54frontend
     depends_on:
       - aq54frontend
-
     volumes:
-        - documentation:/home/node/app/documentation
+        - codedoc:/home/node/app/documentation
     networks:
       - aq54
 
@@ -55,7 +54,7 @@ services:
     container_name: aq54frontend
     volumes:
       - distapp:/home/node/app/distapp
-      - documentation:/home/node/app/documentation
+      - codedoc:/home/node/app/documentation
 
 
     networks:
@@ -63,7 +62,7 @@ services:
 
 volumes:
     distapp:
-    documentation:
+    codedoc:
 
 networks:
   aq54:
